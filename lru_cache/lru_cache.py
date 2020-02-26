@@ -27,7 +27,7 @@ class LRUCache:
     def get(self, key):
         if key in self.storage:
             node = self.storage[key]
-            node.value = (key, value)
+            #node.value = (key, value)
             self.order.move_to_end(node)
             return node.value[1]
         else:
@@ -55,9 +55,6 @@ class LRUCache:
 
         if self.size == self.limit:
             #remove it from oldest
-            #del list(self.storage.keys())[0]
-            #self.storage[self.order.remove_from_head()]
-            print(self.storage)
             del self.storage[self.order.head.value[0]]
             
             #remove it from DoublyLinkedList
