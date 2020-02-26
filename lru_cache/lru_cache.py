@@ -27,7 +27,7 @@ class LRUCache:
     def get(self, key):
         if key in self.storage:
             node = self.storage[key]
-            #node.value = (key, value)
+            node.value = (key, value)
             self.order.move_to_end(node)
             return node.value[1]
         else:
@@ -51,7 +51,7 @@ class LRUCache:
             node = self.storage[key]
             node.value = (key, value)
             self.order.move_to_end(node)
-            return node.value[1]
+            return
 
         if self.size == self.limit:
             #remove it from oldest
@@ -67,6 +67,5 @@ class LRUCache:
 
         self.size += 1
         self.order.add_to_tail((key, value))
-        #self.storage[key] = self.order.tail
-        self.storage[key] = value
+        self.storage[key] = self.order.tail
         print("key-value pair?", self.storage[key])    
