@@ -14,30 +14,35 @@ class BinarySearchTree:
     def insert(self, value):
         #If binary tree is empty, new value is self.value
         if self.value == None:
-            self.value = value
-        elif value < self.value:
-            #If value is less than self.value, find spot to left
-            while self.left != None:
-                if self.left < value:
-                    self.left = value
-                else:
-                    pass
-                    #keep going left until you find it
-        
-        elif value > self.value:
-            #If value is greater than self.value, find spot to right
-            while self.right != None:
-                if self.right > value:
-                    self.right = value
+            self.value = BinarySearchTree(value)
+        else:
+            #go right if value is bigger than self.value
+            if self.value < value:
+                #insert if there's nothing on the right
+                if self.right is None:
+                    self.right = BinarySearchTree(value)
                 else: 
-                    #keep going right until you find it
+                    return self.right.insert(value)
+            #go left if value is less than self.value
+            else:
+                if self.left is None:
+                    self.left = BinarySearchTree(value)
+                else:
+                    self.left.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        if self.value == None:
+            return False
+        elif self.value == target:
+            return True
         #if target is less than self.value, go left
+        elif self.value > target:
+            return self.contains(self.left, target)
         #if target is greater than self.value, go right
+        elif self.value < target:
+            return self.contains(self.right, target)        
 
     # Return the maximum value found in the tree
     def get_max(self):
