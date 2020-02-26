@@ -12,7 +12,7 @@ class LRUCache:
     """
     def __init__(self, limit=10):
         self.limit = limit
-        self.storage = dict()
+        self.storage = {}
         self.order = DoublyLinkedList()
         self.size = 0
 
@@ -46,8 +46,12 @@ class LRUCache:
     """
     def set(self, key, value):
         if key in self.storage:
-            self.storage[key] = value
-            self.order.move_to_end(self.storage[key])
+            # self.storage[key] = value
+            # self.order.move_to_end(self.storage[key])
+            node = self.storage[key]
+            node.value = (key, value)
+            self.storage.move_to_end(node)
+            return
 
         if self.size == self.limit:
             #remove it from oldest
@@ -63,5 +67,5 @@ class LRUCache:
 
         self.size += 1
         self.order.add_to_tail((key, value))
-        self.storage[key] = value
+        self.storage[key] = self.order.tail
         print("key-value pair?", self.storage[key])    
