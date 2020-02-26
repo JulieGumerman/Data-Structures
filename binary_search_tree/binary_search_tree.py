@@ -5,6 +5,7 @@ from dll_stack import Stack
 
 
 class BinarySearchTree:
+    #A node and a tree are the same! How meta is that?!?!
     def __init__(self, value):
         self.value = value
         self.left = None

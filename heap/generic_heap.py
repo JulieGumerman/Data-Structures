@@ -1,10 +1,14 @@
+import heapq
+
 class Heap:
     def __init__(self, comparator):
         self.storage = []
         self.comparator = comparator
 
     def insert(self, value):
-        pass
+        #if length is zero, just insert
+        #otherwise, find spot in order and place there
+        #try a for loop. Insert there
 
     def delete(self):
         pass
