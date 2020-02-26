@@ -65,4 +65,4 @@ class LRUCache:
         self.size += 1
         self.order.add_to_tail((key, value))
         self.storage[key] = self.order.tail
-        print("key-value pair?", self.storage[key])    
+
