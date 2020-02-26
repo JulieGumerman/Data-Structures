@@ -38,11 +38,13 @@ class BinarySearchTree:
         elif self.value == target:
             return True
         #if target is less than self.value, go left
-        elif self.value > target:
-            return self.contains(self.left, target)
+        elif self.value > target and self.left != None:
+            return self.left.contains(target)
         #if target is greater than self.value, go right
-        elif self.value < target:
-            return self.contains(self.right, target)        
+        elif self.value < target and self.right != None: 
+            return self.right.contains(target)
+        else:
+            return False        
 
     # Return the maximum value found in the tree
     def get_max(self):
