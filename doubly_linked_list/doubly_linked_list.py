@@ -58,7 +58,7 @@ class DoublyLinkedList:
             self.head = self.tail = ListNode(value)
         else:
             #We know that this list length is not 0
-            self.head.insert_before(value)
+            self.head.insert_before(ListNode(value))
             self.head = self.head.prev
 
     """Removes the List's current head node, making the
@@ -79,7 +79,7 @@ class DoublyLinkedList:
             self.head = self.tail = ListNode(value)
         else:
             #We know that this list length is not 0
-            self.tail.insert_after(value)
+            self.tail.insert_after(ListNode(value))
             self.tail = self.tail.next        
 
     """Removes the List's current tail node, making the 
@@ -116,7 +116,7 @@ class DoublyLinkedList:
             self.length -= 1
             self.head = None
             self.tail = None
-            return
+            #return
         elif node == self.head:
             self.length -= 1
             self.head = self.head.next
