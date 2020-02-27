@@ -4,7 +4,7 @@ class Heap:
 
     def insert(self, value):
         self.storage.append(value)
-        self._bubble_up(self.get_size)
+        self._bubble_up(self.get_size())
 
     def delete(self):
         pass
@@ -16,7 +16,7 @@ class Heap:
         return len(self.storage) -1
 
     def __swap(self, i, j):
-        self.heap[i], self.heap[j] == self.heap[j], self.heap[i]
+        self.storage[i], self.storage[j] == self.storage[j], self.storage[i]
 
     def _bubble_up(self, index):
         parent = index // 2
