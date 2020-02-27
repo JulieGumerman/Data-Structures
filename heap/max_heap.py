@@ -3,19 +3,20 @@ class Heap:
         self.storage = []
 
     def insert(self, value):
-        pass
+        self.storage.append(value)
+        self._bubble_up(self.get_size)
 
     def delete(self):
         pass
 
     def get_max(self):
-        pass
+        return self.storage[-1]
 
     def get_size(self):
-        pass
+        return len(self.storage) -1
 
     def __swap(self, i, j):
-            self.heap[i], self.heap[j] == self.heap[j], self.heap[i]
+        self.heap[i], self.heap[j] == self.heap[j], self.heap[i]
 
     def _bubble_up(self, index):
         parent = index // 2
@@ -29,4 +30,15 @@ class Heap:
         
 
     def _sift_down(self, index):
-        pass
+        left = index * 2
+        right = index * 2 + 1
+        largest = index
+        if len(self.storage) > left and self.storage[largest] < self.storage[left]:
+            largest = left
+        if len(self.storage) > right and self.storage[largest] < self.storage[right]:
+            largest = right
+        if largest != index:
+            self.__swap(index, largest)
+            self._sift_down(largest)
+
+
