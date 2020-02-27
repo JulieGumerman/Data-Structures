@@ -103,10 +103,12 @@ class BinarySearchTree:
         while s.size != 0:
             current = s.pop()
             print(current.value)
-        if current.right != None:
-            s.push(current.right)
-        if current.left != None:
-            s.push(current.left)
+            if current.left != None:
+                s.push(current.left)
+            if current.right != None:
+                s.push(current.right)
+
+
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
@@ -117,7 +119,8 @@ class BinarySearchTree:
         #left subtree
         #root
         #right subtree
-        pass
+        if node != None:
+            pass
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
